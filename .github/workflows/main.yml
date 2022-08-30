@@ -52,4 +52,7 @@ jobs:
           echo $GITHUB_REF
           echo dumping $VERSION_TAG
           echo $VERSION_TAG
-          echo dumping input version $version_tag 
+          echo dumping input version ${{ inputs.version_tag }} 
+          echo dumping eventst version ${{ github.event.version_tag }} 
+          export CURRENT_TAG=${{ github.event.inputs.version_tag || inputs.version_tag }}
+          echo current_tag $CURRENT_TAG
