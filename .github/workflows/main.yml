@@ -57,6 +57,7 @@ jobs:
           export CURRENT_TAG=${{ github.event.inputs.version_tag || inputs.version_tag }}
           echo current_tag $CURRENT_TAG
           IFS=$'\n'
+          my_array=()
           readarray -t my_array < <(git tag | sort)
           len=${#my_array[@]}
           let "len-=1"
