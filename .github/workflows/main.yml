@@ -58,8 +58,8 @@ jobs:
           echo current_tag $CURRENT_TAG
           IFS=$'\n'
           export my_array=($(git tag | sort))
-          declare -p my_array
-          export len=${#my_array[@]}
-          let "len-=1"
-          echo printing last "${my_array[$len]}"
-          echo printing last "${my_array[0]}"
+          #declare -p my_array
+          #export len=${#my_array[@]}
+          #let "len-=1"
+          #echo printing last "${my_array[$len]}"
+          #echo printing last "${my_array[0]}"
