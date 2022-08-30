@@ -58,7 +58,6 @@ jobs:
           echo current_tag $CURRENT_TAG
           IFS=$'\n'
           readarray -t my_array < <(git tag | sort)
-          declare -p my_array
           len=${#my_array[@]}
           let "len-=1"
           echo printing last "${my_array[$len]}"
