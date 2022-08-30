@@ -52,3 +52,4 @@ jobs:
           echo $GITHUB_REF
           echo dumping $VERSION_TAG
           echo $VERSION_TAG
+          echo dumping input version $version_tag 
