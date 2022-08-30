@@ -56,3 +56,10 @@ jobs:
           echo dumping eventst version ${{ github.event.version_tag }} 
           export CURRENT_TAG=${{ github.event.inputs.version_tag || inputs.version_tag }}
           echo current_tag $CURRENT_TAG
+          IFS=$'\n'
+          readarray -t my_array < <(git tag | sort)
+          declare -p my_array
+          len=${#my_array[@]}
+          for (( i=0; i<$len; i++ )); do echo "${my_array[$i]}" ; done
+          let "len-=1"
+          echo printing last "${my_array[$len]}"
