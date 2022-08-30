@@ -60,6 +60,5 @@ jobs:
           readarray -t my_array < <(git tag | sort)
           declare -p my_array
           len=${#my_array[@]}
-          for (( i=0; i<$len; i++ )); do echo "${my_array[$i]}" ; done
           let "len-=1"
           echo printing last "${my_array[$len]}"
