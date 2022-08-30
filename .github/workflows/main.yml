@@ -38,3 +38,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           export VERSION_TAG=$(echo $GITHUB_REF | awk -F'/' '{ print $NF }')
+          echo dumping $GITHUB_REF
+          echo $GITHUB_REF
+          echo dumping $VERSION_TAG
+          echo $VERSION_TAG
