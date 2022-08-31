@@ -61,7 +61,7 @@ jobs:
           echo $tag
           tag_arr=${tag//-/ }
           echo i am here
-          echo printing arr1 $tag_arr[1]
+          echo printing arr1 ${tag_arr[1]}
           echo printing arr0 ${tag_arr[0]}
           echo printing arr0- $tag_arr[0]
           echo printing arr0-- ${tag_arr[0]}[0]
