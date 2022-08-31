@@ -59,7 +59,7 @@ jobs:
           git fetch --tags
           tag=$(git tag | grep '^v20' | grep -v 'v2022\.09\.04' | sort | tail -1)
           echo $tag
-          tag_arr=${tag//-/ }
+          tag_arr=(${tag//-/ })
           echo i am here
           echo printing arr1 ${tag_arr[1]}
           echo printing arr0 ${tag_arr[0]}
