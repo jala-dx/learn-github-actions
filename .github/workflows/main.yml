@@ -62,9 +62,9 @@ jobs:
           tag_arr=${tag//-/ }
           echo ${tag_arr[1]}
           echo ${tag_arr[0]}
-          todays_date=date +'v%Y.%m.%d'
+          todays_date=$(date +'v%Y.%m.%d')
           echo $todays_date
-          if [ "$today_date" = "$tag_arr[0]" ]; then 
+          if [ "$todays_date" = "$tag_arr[0]" ]; then 
             echo "Strings are equal."
           fi 
 
