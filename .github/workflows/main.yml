@@ -62,9 +62,11 @@ jobs:
           rel_num=${tag_arr[1]}
           rel_num=$((rel_num+1))
           todays_date=$(date +'v%Y.%m.%d')
-          if [ "$todays_date" = "$tag_arr[0]" ]; then 
+          echo am here...$todays_date, $rel_num, ${tag_arr[0]}
+          if [ "${todays_date}" = "${tag_arr[0]}" ]; then 
             echo "Strings are equal."
             tag="${todays_date}-${rel_num}"
           fi 
+          echo am here...$todays_date, $rel_num, ${tag_arr[0]}, $tag
 
 
