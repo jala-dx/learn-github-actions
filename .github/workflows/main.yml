@@ -58,18 +58,13 @@ jobs:
           echo current_tag $CURRENT_TAG
           git fetch --tags
           tag=$(git tag | grep '^v20' | grep -v 'v2022\.09\.04' | sort | tail -1)
-          echo $tag
           tag_arr=(${tag//-/ })
           rel_num=${tag_arr[1]}
           rel_num=$((rel_num+1))
-          echo printing arr0 ${tag_arr[0]}
           todays_date=$(date +'v%Y.%m.%d')
-          echo printing $todays_date
-          #if [ "${todays_date}" = "${tag_arr[0]}" ]; then 
-          try=v2022.08.31
-          if [ "$todays_date" = "$try" ]; then 
+          if [ "$todays_date" = "$tag_arr[0]" ]; then 
             echo "Strings are equal."
+            tag="${todays_date}-${rel_num}"
           fi 
-          echo i am done ${rel_num}
 
 
