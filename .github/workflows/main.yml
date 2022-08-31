@@ -60,12 +60,14 @@ jobs:
           tag=$(git tag | grep '^v20' | grep -v 'v2022\.09\.04' | sort | tail -1)
           echo $tag
           tag_arr=${tag//-/ }
-          echo ${tag_arr[1]}
-          echo ${tag_arr[0]}
+          echo i am here
+          echo printing arr1 ${tag_arr[1]}
+          echo printing arr0 ${tag_arr[0]}
           todays_date=$(date +'v%Y.%m.%d')
-          echo $todays_date
+          echo printing $todays_date
           if [ "$todays_date" = "$tag_arr[0]" ]; then 
             echo "Strings are equal."
           fi 
+          echo i am done
 
 
