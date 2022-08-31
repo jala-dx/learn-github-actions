@@ -65,7 +65,9 @@ jobs:
           echo printing arr0 ${tag_arr[0]}
           todays_date=$(date +'v%Y.%m.%d')
           echo printing $todays_date
-          if [ "${todays_date}" = "${tag_arr[0]}" ]; then 
+          #if [ "${todays_date}" = "${tag_arr[0]}" ]; then 
+          try=v2022.08.31
+          if [ "$todays_date" = "$try" ]; then 
             echo "Strings are equal."
           fi 
           echo i am done ${rel_num}
