@@ -59,11 +59,13 @@ jobs:
           git fetch --tags
           tag=$(git tag | grep '^v20' | grep -v 'v2022\.09\.04' | sort | tail -1)
           echo $tag
-          IFS=$'\n'
-          my_array=$(git tag | sort)
-          echo $my_array
-          #declare -p my_array
-          #export len=${#my_array[@]}
-          #let "len-=1"
-          #echo printing last "${my_array[$len]}"
-          #echo printing last "${my_array[0]}"
+          tag_arr=${tag//-/ }
+          echo ${tag_arr[1]}
+          echo ${tag_arr[0]}
+          todays_date=date +'v%Y.%m.%d'
+          echo $todays_date
+          if [ "$today_date" = "$tag_arr[0]" ]; then 
+            echo "Strings are equal."
+          fi 
+
+
