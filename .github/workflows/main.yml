@@ -49,7 +49,7 @@ jobs:
         run: |
             VERSION_TAG=${{ inputs.version_tag }} 
             echo ... HELLO $VERSION_TAG
-            OUTPUT=`bin/verify-tag.sh "${VERSION_TAG}"`
+            OUTPUT=`bin/verify_tag.sh "${VERSION_TAG}"`
             echo "::set-output name=result::$OUTPUT"
 
       # Runs a set of commands using the runners shell
