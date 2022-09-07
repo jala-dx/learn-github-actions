@@ -20,37 +20,37 @@ on:
         description: 'Version tag for kurl release'
         required: true
 
-  # Allows you to run this workflow manually from the Actions tab
-  #workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  job2:
+    runs-on: ubuntu-latest
+    needs:
+    - verify-tag
+    steps:
+    - uses: actions/checkout@v2
+    - uses: hadolint/hadolint-action@v1.5.0
+      with:
+       dockerfile: Dockerfile
+
+    - name: Run 2nd job
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          export VERSION_TAG=$(echo $GITHUB_REF | awk -F'/' '{ print $NF }')
+     
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    outputs:
-        result: ${{ steps.verify-tag-id.outputs.result }}
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: hadolint/hadolint-action@v1.5.0
         with:
           dockerfile: Dockerfile
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      - id: verify-tag-id
-        name: Verify tag
+      - name: Verify tag
         run: |
-            VERSION_TAG=${{ inputs.version_tag }} 
-            echo ... HELLO $VERSION_TAG
-            OUTPUT=`bin/verify_tag.sh "${VERSION_TAG}"`
-            echo "::set-output name=result::$OUTPUT"
+          VERSION_TAG=${{ inputs.version_tag }} 
+          echo ... HELLO $VERSION_TAG
+          OUTPUT=`bin/verify_tag.sh "${VERSION_TAG}"`
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
