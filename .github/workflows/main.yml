@@ -32,10 +32,10 @@ jobs:
        dockerfile: Dockerfile
 
     - name: Run 2nd job
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          export VERSION_TAG=$(echo $GITHUB_REF | awk -F'/' '{ print $NF }')
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+        export VERSION_TAG=$(echo $GITHUB_REF | awk -F'/' '{ print $NF }')
      
   build:
     runs-on: ubuntu-latest
