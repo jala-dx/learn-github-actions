@@ -37,7 +37,7 @@ jobs:
         echo test, and deploy your project.
         export VERSION_TAG=$(echo $GITHUB_REF | awk -F'/' '{ print $NF }')
      
-  build:
+  verify-tag:
     runs-on: ubuntu-latest
 
     steps:
