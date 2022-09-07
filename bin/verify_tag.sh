@@ -14,7 +14,10 @@ function bail() {
 function main() {
     VERSION_TAG=$1
     tag_arr=(${VERSION_TAG//-/ })
-    todays_date=$(date +'v%Y.%m.%d')
+    if [ "${#tag_arr[@]}" != 2 ]; then
+        bail "Tag must have a running number, <vYYYY.MM.DD-[0..n]>"
+    fi
+    todays_date=$(date -u +'v%Y.%m.%d')
     if [ "${todays_date}" != "${tag_arr[0]}" ]; then
         bail "Tag must have today's date suffixed with a running number, <vYYYY.MM.DD-[0..n]>"
     fi
